@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import './App.css'
+import NavBar from '../../components/NavBar/NavBar'
 import AuthPage from '../AuthPage/AuthPage'
 import NewPathPage from '../NewPathPage/NewPathPage'
 import PathIndexPage from '../PathIndexPage/PathIndexPage'
@@ -11,10 +12,13 @@ export default function App() {
   return (
     <main className="App">
     { user ?
-      <Routes>
-        <Route path="/paths/new" element={<NewPathPage />} />
-        <Route path="/paths" element={<PathIndexPage />} />
-      </Routes>
+      <>
+        <NavBar />
+        <Routes>
+          <Route path="/paths/new" element={<NewPathPage />} />
+          <Route path="/paths" element={<PathIndexPage />} />
+        </Routes>
+      </>
       :
       <AuthPage />
     }
