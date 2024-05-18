@@ -7,7 +7,7 @@ export async function signUp(userData) {
     // Persist the "token"
     localStorage.setItem('token', token)
     // Baby step by returning whatever is sent back by the server
-    return token;
+    return getUser();
   }
 
 export function getToken() {
