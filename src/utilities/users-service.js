@@ -9,6 +9,10 @@ export async function signUp(userData) {
     // Baby step by returning whatever is sent back by the server
     return getUser();
   }
+  
+export function logOut() {
+  localStorage.removeItem('token');
+}
 
 export function getToken() {
   // getItem returns null if there's no string
