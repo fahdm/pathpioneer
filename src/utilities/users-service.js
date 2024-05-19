@@ -9,6 +9,16 @@ export async function signUp(userData) {
     // Baby step by returning whatever is sent back by the server
     return getUser();
   }
+
+export async function login(credentials) {
+  // Delegate the network request code to the users-api.js API module
+  // which will ultimately return a JSON Web Token (JWT)
+  const token = await usersAPI.login(credentials);
+  // Persist the "token"
+  localStorage.setItem('token', token)
+  // Baby step by returning whatever is sent back by the server
+  return getUser();
+}
   
 export function logOut() {
   localStorage.removeItem('token');
