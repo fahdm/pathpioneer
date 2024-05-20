@@ -4,7 +4,7 @@ const User = require('../../models/user')
 
 module.exports = {
     create,
-    login
+    login,
   };
   
 async function create(req, res) {
