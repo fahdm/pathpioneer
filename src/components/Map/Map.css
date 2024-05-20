@@ -1,4 +1,9 @@
-.Map-Container{
-    width: 100%;
-    height: 400px;
-}
+.Map-Container {
+    width: 50%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; 
+  }
+  
