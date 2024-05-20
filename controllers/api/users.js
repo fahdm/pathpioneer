@@ -6,6 +6,7 @@ module.exports = {
     create,
     login,
     checkToken
+
   };
   
 async function create(req, res) {
@@ -55,8 +56,10 @@ function createJWT(user) {
   );
 }
 
+
 function checkToken(req, res) {
   // Verify middleware is doing its job
   console.log('req.user', req.user);
   res.json(req.exp);
 }
+
