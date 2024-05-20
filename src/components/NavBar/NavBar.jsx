@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import * as userService from '../../utilities/users-service'
+import * as usersService from '../../utilities/users-service'
 
 export default function NavBar({ user, setUser }) {
 
     function handleLogOut() {
-        userService.logOut();
+        usersService.logOut();
 
         setUser(null);
     }
@@ -12,6 +12,7 @@ export default function NavBar({ user, setUser }) {
     return (
         <nav>
             <Link to='/'>PathPioneer</Link>
+            &nbsp; | &nbsp;
             <Link to='/paths/new'>New Path</Link>
             &nbsp; | &nbsp;
             <Link to='/paths'>My Paths</Link>
