@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom'
+
 import './NavBar.css'
 
-export default function NavBar() {
+export default function NavBar({ user, setUser }) {
+
+    function handleLogOut() {
+        usersService.logOut();
+
+        setUser(null);
+    }
+
     return (
         <nav >
             <Link to='/'>PathPioneer</Link>
@@ -9,6 +17,10 @@ export default function NavBar() {
             <Link to='/paths/new'>New Path</Link>
             &nbsp; | &nbsp;
             <Link to='/paths'>My Paths</Link>
+            &nbsp; | &nbsp;
+            <span> Welcome, {user.name}</span>
+            &nbsp; | &nbsp;
+            <Link to='' onClick={ handleLogOut }>Log Out</Link>
         </nav>
     );
   }
