@@ -14,7 +14,7 @@ export default function AuthPage({setUser}) {
                 {showSignUp ? (
                 <SignUpForm setUser={setUser} />
                 ) : (
-                <div class='loginForm'><LoginForm class='loginForm' setUser={setUser} /></div>
+                <div className='loginForm'><LoginForm className='loginForm' setUser={setUser} /></div>
                 )}
             </div>
         </main>
