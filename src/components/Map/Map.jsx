@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import mapboxgl from 'mapbox-gl';
-import RouteSelector from '../RouteSelector/RouteSelector';
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './Map.css'
 
@@ -10,33 +10,82 @@ import './Map.css'
 mapboxgl.accessToken = process.env.REACT_APP_MAP_BOX_TOKEN
 
 
+
+
 function Map () {
   
-  const container = useRef();
+  const [wayPoints, setWayPoints]= useState(null)
+  const mapContainer = useRef(null);
   const map = useRef(null);
-  const [profile, setProfile] = useState('walking');
+  const directions = useRef(null)
+  
   
   useEffect(() => {
-    if (map.current) {
+    if(map.current){
       return;
     }
-    
     map.current = new mapboxgl.Map({
-      container:container.current,
+      container: mapContainer.current,
       zoom: 10,
-      center:[-122,37],
-      style:'mapbox://styles/mapbox/streets-v12',
-     
+      center: [-122, 37],
+      style: 'mapbox://styles/mapbox/streets-v12',
     });
-  }, [] )
+    
+    
+    
+     directions.current = new MapboxDirections({
+      accessToken: mapboxgl.accessToken,
+      unit: 'metric',
+      profile: 'mapbox/walking', // Default 
+      controls: {
+        inputs: true, 
+        instructions: true,
+        profileSwitcher: true,
+        profilePicker: {
+          driving:false,
+          cycling: true,
+          walking: true,
+        },
+      },
+    });
+
+    setWayPoints(directions.current)
+    
+    
+
+    map.current.addControl(directions.current,'top-left')
+    directions.current.on('profile', (e) => {
+    
+    const origin = directions.current.getOrigin();
+    console.log('origin', origin?.geometry?.coordinates)
+
+    const destination = directions.current.getDestination();
+    console.log('destination', destination?.geometry?.coordinates)
+    
+   
+      
+    });
+
+    directions.current.on('highlightRoute', (e) => {
+    
+      console.log(e)
+      console.log(directions.current)
+
+      
+    });
+    
   
+
+  }, []);
+
 
   return (
     <div>
-      <RouteSelector className="" profile={profile} />
-      <div className='Map-Container' ref={container}/>
+      <div className='Map-Container' ref={mapContainer} />
     </div>
+    
   );
+
 
 }
 
