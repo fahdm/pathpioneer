@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import mapboxgl from 'mapbox-gl';
+import RouteSelector from '../RouteSelector/RouteSelector';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './Map.css'
 
@@ -13,6 +14,7 @@ function Map () {
   
   const container = useRef();
   const map = useRef(null);
+  const [profile, setProfile] = useState('walking');
   
   useEffect(() => {
     if (map.current) {
@@ -26,33 +28,14 @@ function Map () {
       style:'mapbox://styles/mapbox/streets-v12',
      
     });
-
-    // Create a default Marker and add it to the map.
-    const marker1 = new mapboxgl.Marker()
-        .setLngLat([-122.4786, 37.8199])
-        .addTo(map.current);
-
-        //save to database 
-
-    // Create a default Marker, colored black, rotated 45 degrees.
-    const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
-        .setLngLat([-122.4125, 37.8086])
-        .addTo(map.current);
-
-        console.log(map.current)
-        console.log(marker2)
-
   }, [] )
-
   
 
   return (
-    <div className='Map-Container' ref={container}>
-  
-     
-
+    <div>
+      <RouteSelector className="" profile={profile} />
+      <div className='Map-Container' ref={container}/>
     </div>
-    
   );
 
 }
