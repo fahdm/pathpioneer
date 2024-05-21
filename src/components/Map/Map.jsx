@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import mapboxgl from 'mapbox-gl';
+import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 import 'mapbox-gl/dist/mapbox-gl.css'
 import './Map.css'
 
@@ -11,49 +12,52 @@ mapboxgl.accessToken = process.env.REACT_APP_MAP_BOX_TOKEN
 
 function Map () {
   
-  const container = useRef();
+  const mapContainer = useRef(null);
   const map = useRef(null);
+  const [profile, setProfile] = useState('walking');
   
   useEffect(() => {
-    if (map.current) {
+    if(map.current){
       return;
     }
-    
     map.current = new mapboxgl.Map({
-      container:container.current,
+      container: mapContainer.current,
       zoom: 10,
-      center:[-122,37],
-      style:'mapbox://styles/mapbox/streets-v12',
-     
+      center: [-122, 37],
+      style: 'mapbox://styles/mapbox/streets-v12',
     });
 
-    // Create a default Marker and add it to the map.
-    const marker1 = new mapboxgl.Marker()
-        .setLngLat([-122.4786, 37.8199])
-        .addTo(map.current);
+    
 
-        //save to database 
+    directions.current = new MapboxDirections({
+      accessToken: mapboxgl.accessToken,
+      unit: 'metric',
+      profile: 'mapbox/walking', // Default 
+      controls: {
+        inputs: true, 
+        instructions: false,
+        profileSwitcher: true,
+        profilePicker: {
+          driving:false,
+          cycling: true,
+          walking: true,
+        },
+      },
+    });
 
-    // Create a default Marker, colored black, rotated 45 degrees.
-    const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
-        .setLngLat([-122.4125, 37.8086])
-        .addTo(map.current);
+    map.current.addControl(directions.current,'top-left')
+    // handleSaveDirection();
 
-        console.log(map.current)
-        console.log(marker2)
+  }, []);
 
-  }, [] )
-
-  
 
   return (
-    <div className='Map-Container' ref={container}>
-  
-     
-
+    <div>
+      <div className='Map-Container' ref={mapContainer} />
     </div>
     
   );
+
 
 }
 
