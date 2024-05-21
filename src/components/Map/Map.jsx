@@ -10,11 +10,15 @@ import './Map.css'
 mapboxgl.accessToken = process.env.REACT_APP_MAP_BOX_TOKEN
 
 
+
+
 function Map () {
   
+  const [wayPoints, setWayPoints]= useState(null)
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [profile, setProfile] = useState('walking');
+  const directions = useRef(null)
+  
   
   useEffect(() => {
     if(map.current){
@@ -26,16 +30,16 @@ function Map () {
       center: [-122, 37],
       style: 'mapbox://styles/mapbox/streets-v12',
     });
-
     
-
-    directions.current = new MapboxDirections({
+    
+    
+     directions.current = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
       profile: 'mapbox/walking', // Default 
       controls: {
         inputs: true, 
-        instructions: false,
+        instructions: true,
         profileSwitcher: true,
         profilePicker: {
           driving:false,
@@ -45,8 +49,32 @@ function Map () {
       },
     });
 
+    setWayPoints(directions.current)
+    
+    
+
     map.current.addControl(directions.current,'top-left')
-    // handleSaveDirection();
+    directions.current.on('profile', (e) => {
+    
+    const origin = directions.current.getOrigin();
+    console.log('origin', origin?.geometry?.coordinates)
+
+    const destination = directions.current.getDestination();
+    console.log('destination', destination?.geometry?.coordinates)
+    
+   
+      
+    });
+
+    directions.current.on('highlightRoute', (e) => {
+    
+      console.log(e)
+      console.log(directions.current)
+
+      
+    });
+    
+  
 
   }, []);
 
