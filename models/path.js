@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const routeSchema = new mongoose.Schema({
+const pathSchema = new mongoose.Schema({
   name: {
      type: String, 
      required: true
@@ -22,4 +22,4 @@ const routeSchema = new mongoose.Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('Route', routeSchema);
+module.exports = mongoose.model('Path', pathSchema);
