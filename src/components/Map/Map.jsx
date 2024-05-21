@@ -39,9 +39,34 @@ function Map() {
       },
     });
 
-    setWayPoints(directions.current);
+    setWayPoints(directions.current)
+    console.log(map.current)
+    
 
-    map.current.addControl(directions.current, 'top-left');
+    map.current.addControl(directions.current,'top-left')
+    directions.current.on('profile', (e) => {
+    
+    const origin = directions.current.getOrigin();
+    console.log('origin', origin?.geometry?.coordinates)
+
+    const destination = directions.current.getDestination();
+    console.log('destination', destination?.geometry?.coordinates)
+    
+   
+      
+    });
+
+    directions.current.on('highlightRoute', (e) => {
+    
+      console.log(e)
+      console.log(directions.current)
+      
+
+      
+    });
+    
+  
+
   }, []);
 
   return (
