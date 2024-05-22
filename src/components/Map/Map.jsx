@@ -67,10 +67,10 @@ function Map() {
     }
   };
 
-  const handleGetPaths = async () => {
-    const paths = await getPaths();
-    console.log('Retrieved Paths:', paths);
-  };
+  // const handleGetPaths = async () => {
+  //   const paths = await getPaths();
+  //   console.log('Retrieved Paths:', paths);
+  // };
 
   return (
     <div>
@@ -84,7 +84,7 @@ function Map() {
         />
       </div> 
       <button onClick={handleSavePath}>Save Path</button>
-      <button onClick={handleGetPaths}>Get Paths</button>
+      {/* <button onClick={handleGetPaths}>Get Paths</button> */}
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import * as usersService from '../../utilities/users-service'
-import { useState } from 'react'
-import './LoginForm.css'
+import * as usersService from '../../utilities/users-service';
+import { useState } from 'react';
+import './LoginForm.css';
 
 export default function LoginForm({setUser}) {
 
@@ -15,7 +15,7 @@ export default function LoginForm({setUser}) {
 
       newCredentials.error = ''
       setCredentials(newCredentials)
-    }
+    };
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -32,7 +32,7 @@ export default function LoginForm({setUser}) {
             // An error occurred 
             setCredentials({...credentials, error: 'Login Failed - Try Again' });
         }
-    }
+    };
 
     return (
       <main className="main-container">

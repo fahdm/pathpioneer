@@ -6,8 +6,8 @@
 :root {
   --primary-color: #2ABFA4; /* Teal */
   --secondary-color: #A67C52; /* Brown */
-  --background-color: #F0F0F0; /* Light Gray */
-  --card-background-color: #FFFFFF; /* White */
+  --background-color: #FFFFFF; /* White */
+  --card-background-color: #F0F0F0; /* Light Gray */
   --border-color: #E0E0E0; /* Light Border Gray */
   --text-color: #333333; /* Dark Gray */
   --dark-green-color: #1A5144; /* Dark Green */
@@ -31,7 +31,6 @@ body {
 section {
   padding: 20px;
   margin: 20px 0;
-  background-color: var(--background-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
