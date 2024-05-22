@@ -1,12 +1,23 @@
+import MapThumb from '../../components/MapThumb/MapThumb';
+
 import { Link } from 'react-router-dom';
 
 export default function PathCard({ path }) {
     return (
         <>
-        <h1>PathCard</h1>
-        <li><h4>{path.name}</h4></li>
-        <li><h4>{path._id}</h4></li>
-        {/* <li><Link to={`/movies/${m.title}`}><div><img src={m.posterPath} alt="" /><br/>{m.title}<br/>{m.releaseDate}</div></Link></li> */}
+        {/* 
+        <li><h4>{path.name} :</h4></li>
+        <MapThumb path={path}/> */}
+
+
+        <li><Link to={`/paths/${path._id}`}><div>
+        
+        <h4>{path.name} :</h4>
+        <MapThumb path={path} />
+        
+        </div></Link></li>
+
+
         </>
     );
   }
