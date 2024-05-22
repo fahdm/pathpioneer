@@ -1,7 +1,21 @@
 import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import MapThumb from "../../components/MapThumb/MapThumb";
+import { getPaths } from "../../utilities/paths-service";
 
-export default function PathDetailPage({paths}) {
+export default function PathDetailPage() {
+
+    const [paths, setPaths] = useState([]);
+
+    useEffect(() => {
+    async function fetchPaths() {
+      const paths = await getPaths();
+      setPaths(paths);
+    }
+
+    fetchPaths();
+    }, []);
+
     const { pathId } = useParams();
 
     if (!paths || paths.length === 0) {
