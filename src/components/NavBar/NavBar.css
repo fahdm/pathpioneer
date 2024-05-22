@@ -1,0 +1,72 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link,
+.welcome {
+  color: white;
+  text-decoration: none;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #ff6347; /* Tomato color on hover */
+  text-decoration: underline;
+}
+
+.separator {
+  color: white;
+  padding: 0 10px;
+}
+
+.welcome {
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-logo,
+  .navbar-links {
+    width: 100%;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link,
+  .welcome {
+    padding: 5px 0;
+  }
+
+  .separator {
+    display: none;
+  }
+}
