@@ -3,19 +3,20 @@ import mapboxgl from 'mapbox-gl';
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import './Map.css';
+import { createPath, getPaths } from '../../utilities/paths-service';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAP_BOX_TOKEN;
 
 function Map() {
   const [wayPoints, setWayPoints] = useState(null);
+  const [pathName, setPathName] = useState('');
+  const [travelMode, setTravelMode] = useState('walking'); 
   const mapContainer = useRef(null);
   const map = useRef(null);
   const directions = useRef(null);
 
   useEffect(() => {
-    if (map.current) {
-      return;
-    }
+    if (map.current) return; // Initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       zoom: 10,
@@ -23,14 +24,13 @@ function Map() {
       style: 'mapbox://styles/mapbox/streets-v12',
     });
 
-    // Add built-in zoom and rotation controls to the map.
     const nav = new mapboxgl.NavigationControl();
     map.current.addControl(nav, 'top-right');
 
     directions.current = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
-      profile: 'mapbox/walking', // Default
+      profile: `mapbox/${travelMode}`, 
       controls: {
         inputs: true,
         instructions: true,
@@ -38,14 +38,49 @@ function Map() {
       },
     });
 
-    setWayPoints(directions.current);
+    directions.current.on('profile', (e) => { 
+      setTravelMode(e.profile.split('/')[1]); // Update travel mode 
+    }); 
 
     map.current.addControl(directions.current, 'top-left');
-  }, []);
+    setWayPoints(directions.current);
+  }, [travelMode]);
+
+  const handleSavePath = async () => {
+    const pathOrigin = directions.current.getOrigin();
+    const pathDestination = directions.current.getDestination();
+    if (pathOrigin && pathDestination) {
+      const pathBody = {
+        name: pathName, 
+        originCoordinates: pathOrigin.geometry.coordinates,
+        destinationCoordinates: pathDestination.geometry.coordinates,
+        travelMode, 
+      };
+      const savedPath = await createPath(pathBody);
+      console.log('Saved Path:', savedPath);
+    } else {
+      alert('Please set both origin and destination');
+    }
+  };
+
+  const handleGetPaths = async () => {
+    const paths = await getPaths();
+    console.log('Retrieved Paths:', paths);
+  };
 
   return (
     <div>
       <div className="Map-Container" ref={mapContainer} />
+      <div> 
+        <input
+          type="text"
+          placeholder="Enter path name"
+          value={pathName}
+          onChange={(e) => setPathName(e.target.value)}
+        />
+      </div> 
+      <button onClick={handleSavePath}>Save Path</button>
+      <button onClick={handleGetPaths}>Get Paths</button>
     </div>
   );
 }
