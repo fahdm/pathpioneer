@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom';
 export default function PathCard({ path }) {
     return (
         <>
-        {/* 
-        <li><h4>{path.name} :</h4></li>
-        <MapThumb path={path}/> */}
-
 
         <li><Link to={`/paths/${path._id}`}><div>
         

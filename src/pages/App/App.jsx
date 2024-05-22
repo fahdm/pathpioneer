@@ -15,7 +15,7 @@ import MapThumb from '../../components/MapThumb/MapThumb';
 export default function App() {
 
   const [user, setUser] = useState(getUser())
-  const [paths, setPaths] = useState()
+  const [paths, setPaths] = useState([])
 
   useEffect(() => {
     async function fetchPaths() {

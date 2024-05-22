@@ -4,9 +4,11 @@ import MapThumb from "../../components/MapThumb/MapThumb";
 export default function PathDetailPage({paths}) {
     const { pathId } = useParams();
 
-    const path = paths.find(p => p._id === pathId)
+    if (!paths || paths.length === 0) {
+      return <h1>Loading...</h1>;
+    }
 
-    // const path = paths.find(p => p.name.replace(/\s+/g, '').toLowerCase() === movieName.replace(/\s+/g, '').toLowerCase())
+    const path = paths.find(p => p._id === pathId)
 
     if (!paths) {
       return <h1>No paths available</h1>;
