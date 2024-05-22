@@ -1,5 +1,3 @@
-// controllers/api/paths.js
-
 const Path = require('../../models/path');
 
 module.exports = {

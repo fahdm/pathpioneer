@@ -9,6 +9,8 @@ mapboxgl.accessToken = process.env.REACT_APP_MAP_BOX_TOKEN;
 
 function Map() {
   const [wayPoints, setWayPoints] = useState(null);
+  const [pathName, setPathName] = useState('');
+  const [travelMode, setTravelMode] = useState('walking'); 
   const mapContainer = useRef(null);
   const map = useRef(null);
   const directions = useRef(null);
@@ -28,7 +30,7 @@ function Map() {
     directions.current = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
       unit: 'metric',
-      profile: 'mapbox/walking',
+      profile: `mapbox/${travelMode}`, 
       controls: {
         inputs: true,
         instructions: true,
@@ -36,18 +38,23 @@ function Map() {
       },
     });
 
+    directions.current.on('profile', (e) => { 
+      setTravelMode(e.profile.split('/')[1]); // Update travel mode 
+    }); 
+
     map.current.addControl(directions.current, 'top-left');
     setWayPoints(directions.current);
-  }, []);
+  }, [travelMode]);
 
   const handleSavePath = async () => {
     const pathOrigin = directions.current.getOrigin();
     const pathDestination = directions.current.getDestination();
     if (pathOrigin && pathDestination) {
       const pathBody = {
-        name: 'San Francisco To Oakland',
+        name: pathName, 
         originCoordinates: pathOrigin.geometry.coordinates,
         destinationCoordinates: pathDestination.geometry.coordinates,
+        travelMode, 
       };
       const savedPath = await createPath(pathBody);
       console.log('Saved Path:', savedPath);
@@ -64,6 +71,14 @@ function Map() {
   return (
     <div>
       <div className="Map-Container" ref={mapContainer} />
+      <div> 
+        <input
+          type="text"
+          placeholder="Enter path name"
+          value={pathName}
+          onChange={(e) => setPathName(e.target.value)}
+        />
+      </div> 
       <button onClick={handleSavePath}>Save Path</button>
       <button onClick={handleGetPaths}>Get Paths</button>
     </div>
