@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import mapboxgl from 'mapbox-gl';
 import MapboxDirections from '@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -14,6 +16,7 @@ function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const directions = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (map.current) return; // Initialize map only once
@@ -57,6 +60,7 @@ function Map() {
         travelMode, 
       };
       const savedPath = await createPath(pathBody);
+      navigate('/paths'); 
       console.log('Saved Path:', savedPath);
     } else {
       alert('Please set both origin and destination');
