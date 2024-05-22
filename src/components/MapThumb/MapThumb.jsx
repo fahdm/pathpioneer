@@ -6,7 +6,7 @@ import './MapThumb.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAP_BOX_TOKEN;
 
-export default function Test({path}) {
+export default function MapThumb({path}) {
     const [wayPoints, setWayPoints] = useState(null);
     const [pathName, setPathName] = useState('');
     const [travelMode, setTravelMode] = useState('cycling'); 
@@ -95,8 +95,8 @@ export default function Test({path}) {
       }, []);  
   
     return (
-      <div className="path-index-page">
+     <div className="path-index-page">
         <div className="Map-Container" ref={mapContainer} />
-      </div>
+    </div>
     );
   }
