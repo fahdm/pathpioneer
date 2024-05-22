@@ -1,13 +1,26 @@
-import { checkToken } from '../../utilities/users-service';
+import { useEffect, useState } from "react";
+import { getPaths } from "../../utilities/paths-service";
+import PathCard from "../../components/PathCard/PathCard";
+
 export default function PathIndexPage() {
-    async function handleCheckToken(){
-        const expDate = await checkToken()
-        console.log(expDate)
+
+    const [paths, setPaths] = useState([]);
+
+    useEffect(() => {
+    async function fetchPaths() {
+      const paths = await getPaths();
+      setPaths(paths);
     }
+
+    fetchPaths();
+    }, []);
+
     return (
         <>
-            <h1>PathIndexPage</h1>
-            <button onClick={handleCheckToken}>Check When My Login Expires</button>
+            <h1>My Paths:</h1>
+            <ul>
+                {paths.map((path) => (<PathCard path={path}/>))}
+            </ul>            
         </>
     );
   }
