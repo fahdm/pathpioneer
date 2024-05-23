@@ -31,7 +31,7 @@ body {
 section {
   padding: 20px;
   margin: 20px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,6 +73,12 @@ label {
   font-weight: bold;
   margin-bottom: 5px;
   display: block;
+}
+
+.form-container {
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Error Messages */

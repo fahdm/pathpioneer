@@ -3,9 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: var(--background-color);
-}
+  height: fit-content;
+} 
 
 /* Form wrapper styling */
 .form-wrapper {
@@ -23,7 +22,7 @@
 /* Form element styling */
 form {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
 label {

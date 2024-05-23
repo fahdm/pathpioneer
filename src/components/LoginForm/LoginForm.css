@@ -3,8 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: var(--background-color);
+  height: fit-content;
 }
 
 /* Form wrapper styling */
@@ -16,17 +15,15 @@
 
 /* Form container styling */
 .form-container {
-  
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Form element styling */
+/* Form element styling*/
 form {
   display: flex;
   flex-direction: column;
-}
+} 
 
 label {
   margin-bottom: 10px;
@@ -41,6 +38,17 @@ input {
   border-radius: 5px;
   font-size: 16px;
   color: var(--text-color);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #FFFFFF;
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 /* Error message styling */
