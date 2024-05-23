@@ -24,6 +24,7 @@ function Map() {
       container: mapContainer.current,
       zoom: 10,
       center: [-122, 37],
+      attributionControl: false, // Remove the Mapbox watermark
       style: 'mapbox://styles/mapbox/streets-v12',
     });
 
