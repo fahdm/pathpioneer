@@ -99,22 +99,10 @@ export default function Map() {
     }
   };
 
-<<<<<<< HEAD
-  // const handleGetPaths = async () => {
-  //   const paths = await getPaths();
-  //   console.log('Retrieved Paths:', paths);
-  // };
-
-  return (
-    <div className="map-page">
-      <div className="map-container" ref={mapContainer} />
-      <div className="input-button-container">
-=======
   return (
     <div>
       <div className="Map-Container" ref={mapContainer} />
       <div>
->>>>>>> main
         <input
           type="text"
           className="path-input"
@@ -122,13 +110,8 @@ export default function Map() {
           value={pathName}
           onChange={(e) => setPathName(e.target.value)}
         />
-<<<<<<< HEAD
-        <button className="save-button" onClick={handleSavePath}>Save Path</button>
-      </div>
-=======
       </div>
       <button onClick={handleSavePath}>Save Path</button>
->>>>>>> main
     </div>
   );
 }
