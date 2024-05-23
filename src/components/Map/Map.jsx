@@ -73,18 +73,18 @@ function Map() {
   // };
 
   return (
-    <div>
-      <div className="Map-Container" ref={mapContainer} />
-      <div> 
+    <div className="map-page">
+      <div className="map-container" ref={mapContainer} />
+      <div className="input-button-container">
         <input
           type="text"
+          className="path-input"
           placeholder="Enter path name"
           value={pathName}
           onChange={(e) => setPathName(e.target.value)}
         />
-      </div> 
-      <button onClick={handleSavePath}>Save Path</button>
-      {/* <button onClick={handleGetPaths}>Get Paths</button> */}
+        <button className="save-button" onClick={handleSavePath}>Save Path</button>
+      </div>
     </div>
   );
 }
