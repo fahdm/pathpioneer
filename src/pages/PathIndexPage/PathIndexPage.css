@@ -30,4 +30,13 @@ h4 {
     .paths-grid > * {
       flex-basis: calc(33.3333% - 20px);
     }
+
+    .no-routes-message {
+        margin-top: 20px;
+    }
+}
+
+.no-route {
+    margin-top: 20px;
+    text-align: center;
 }

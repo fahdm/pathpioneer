@@ -18,14 +18,18 @@ export default function PathIndexPage() {
 
     return (
         <>
-          <p>Select the the route you want to take!</p>
-          <div className="paths-grid">
-            {paths.map((path) => (
-              <div key={path._id} className="path-card-wrapper">
-                <PathCard path={path} />
-              </div>
-            ))}
-          </div>
+            <p>Select the route you want to take!</p>
+            {paths.length > 0 ? (
+                <div className="paths-grid">
+                    {paths.map((path) => (
+                        <div key={path._id} className="path-card-wrapper">
+                            <PathCard path={path} />
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <p className="no-route">No routes created yet.</p>
+            )}
         </>
     );
 }
