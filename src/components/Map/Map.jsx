@@ -12,6 +12,9 @@ export default function Map() {
   const [wayPoints, setWayPoints] = useState(null);
   const [pathName, setPathName] = useState('');
   const [travelMode, setTravelMode] = useState('walking');
+  const [distance, setDistance] = useState(null);
+  const [duration, setDuration] = useState(null);
+  const [directionsArray, setDirectionsArray] = useState([]);
   const mapContainer = useRef(null);
   const map = useRef(null);
   const directions = useRef(null);
@@ -31,7 +34,7 @@ export default function Map() {
 
     directions.current = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
-      unit: 'metric',
+      unit: 'imperial',
       profile: `mapbox/${travelMode}`,
       controls: {
         inputs: true,
@@ -41,28 +44,57 @@ export default function Map() {
     });
 
     directions.current.on('profile', (e) => {
-      setTravelMode(e.profile.split('/')[1]); // Update travel mode
+      setTravelMode(e.profile.split('/')[1]);
     });
 
     map.current.addControl(directions.current, 'top-left');
     setWayPoints(directions.current);
   }, [travelMode]);
 
-  const handleSavePath = async () => {
+  const fetchRouteDetails = async () => {
     const pathOrigin = directions.current.getOrigin();
     const pathDestination = directions.current.getDestination();
     if (pathOrigin && pathDestination) {
+      const url = `https://api.mapbox.com/directions/v5/mapbox/${travelMode}/${pathOrigin.geometry.coordinates.join(',')};${pathDestination.geometry.coordinates.join(',')}?geometries=geojson&steps=true&access_token=${mapboxgl.accessToken}`;
+      const response = await fetch(url);
+      const data = await response.json();
+      
+      const fetchedDistance = data.routes[0].distance * 0.000621371; // Distance in miles
+      const fetchedDuration = data.routes[0].duration; // Duration in seconds
+      const fetchedDirectionsArray = data.routes[0].legs[0].steps.map(step => step.maneuver.instruction); // Directions array
+
+      setDistance(fetchedDistance);
+      setDuration(fetchedDuration);
+      setDirectionsArray(fetchedDirectionsArray);
+
+      return {
+        distance: fetchedDistance,
+        duration: fetchedDuration,
+        directions: fetchedDirectionsArray,
+      };
+    } else {
+      alert('Please set both origin and destination');
+      return null;
+    }
+  };
+
+  const handleSavePath = async () => {
+    const routeDetails = await fetchRouteDetails();
+    if (routeDetails) {
+      const pathOrigin = directions.current.getOrigin();
+      const pathDestination = directions.current.getDestination();
       const pathBody = {
         name: pathName,
         originCoordinates: pathOrigin.geometry.coordinates,
         destinationCoordinates: pathDestination.geometry.coordinates,
         travelMode,
+        distance: routeDetails.distance,
+        duration: routeDetails.duration,
+        directions: routeDetails.directions,
       };
+
       const savedPath = await createPath(pathBody);
       navigate('/paths');
-     
-    } else {
-      alert('Please set both origin and destination');
     }
   };
 
@@ -81,5 +113,3 @@ export default function Map() {
     </div>
   );
 }
-
-
