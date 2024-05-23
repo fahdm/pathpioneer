@@ -26,6 +26,7 @@ async function create(req, res) {
 }
   
 async function login(req, res) {
+  
   try {
     // Try to find the user in the database by email
     const user = await User.findOne({ email: req.body.email });    
@@ -58,8 +59,6 @@ function createJWT(user) {
 
 
 function checkToken(req, res) {
-  // Verify middleware is doing its job
-  console.log('req.user', req.user);
   res.json(req.exp);
 }
 

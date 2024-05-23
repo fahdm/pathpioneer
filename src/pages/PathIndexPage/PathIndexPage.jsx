@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getPaths } from "../../utilities/paths-service";
 import PathCard from "../../components/PathCard/PathCard";
 
+
 export default function PathIndexPage() {
 
     const [paths, setPaths] = useState([]);

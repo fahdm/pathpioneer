@@ -9,14 +9,14 @@ import NewPathPage from '../NewPathPage/NewPathPage'
 import PathIndexPage from '../PathIndexPage/PathIndexPage'
 import PathDetailPage from '../PathDetailPage/PathDetailPage'
 import './App.css';
-
+ 
 import MapThumb from '../../components/MapThumb/MapThumb';
-
+ 
 export default function App() {
-
+ 
   const [user, setUser] = useState(getUser())
   const [paths, setPaths] = useState([])
-
+ 
   return (
     <main className="App">
     { user ?
