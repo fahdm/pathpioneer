@@ -26,6 +26,7 @@ async function create(req, res) {
 }
   
 async function login(req, res) {
+  
   console.log('req.body')
   try {
     // Try to find the user in the database by email
@@ -59,8 +60,6 @@ function createJWT(user) {
 
 
 function checkToken(req, res) {
-  // Verify middleware is doing its job
-  console.log('req.user', req.user);
   res.json(req.exp);
 }
 
