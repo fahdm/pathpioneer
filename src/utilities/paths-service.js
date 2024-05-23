@@ -10,3 +10,7 @@ export function createPath(pathData) {
 export function getPaths() {
   return sendRequest(BASE_URL, 'GET');
 }
+
+export function deletePath(pathId) {
+  return sendRequest(`${BASE_URL}/${pathId}`, 'DELETE');
+}

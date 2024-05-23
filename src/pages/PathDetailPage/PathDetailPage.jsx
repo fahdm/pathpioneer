@@ -1,11 +1,13 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MapThumb from "../../components/MapThumb/MapThumb";
-import { getPaths } from "../../utilities/paths-service";
+import { getPaths, deletePath } from "../../utilities/paths-service";
+
 
 export default function PathDetailPage() {
 
     const [paths, setPaths] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
     async function fetchPaths() {
@@ -49,12 +51,22 @@ export default function PathDetailPage() {
     const formattedDate = formatter.format(date);
     console.log(formattedDate);
 
+    const handleDeletePath = async () => {
+      const deletedPath = await deletePath(path._id);
+      console.log('Deleted Path:', deletedPath);
+      navigate('/paths')
+    };
+
+
 
     return (
       <>
         <h1>{path.name}</h1>
         <MapThumb path={path}/>
         <h5>Created {formattedDate}</h5>
+
+        <button onClick={handleDeletePath}>DELETE</button>
+
       </>
     );
   }
