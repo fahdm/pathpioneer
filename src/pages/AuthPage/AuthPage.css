@@ -1,0 +1,43 @@
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--background-color);
+    padding: 20px;
+}
+
+.auth-page h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+.toggle-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: none;
+}
+
+.toggle-button:hover {
+    background-color: var(--dark-green-color);
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--card-background-color);
+    padding: 20px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; 
+}

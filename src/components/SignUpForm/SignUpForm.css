@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   height: fit-content;
-}
+} 
 
 /* Form wrapper styling */
 .form-wrapper {
@@ -19,16 +19,20 @@
   border-radius: 10px;
 }
 
-/* Form element styling*/
+/* Form element styling */
 form {
   display: flex;
-  flex-direction: column;
-} 
+  flex-direction: column; 
+}
 
 label {
   margin-bottom: 10px;
   font-weight: bold;
   color: var(--text-color);
+}
+
+button {
+  margin-top: auto;
 }
 
 input {
@@ -38,17 +42,6 @@ input {
   border-radius: 5px;
   font-size: 16px;
   color: var(--text-color);
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #FFFFFF;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 /* Error message styling */

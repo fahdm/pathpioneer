@@ -5,7 +5,7 @@ body {
 }
 
 .navbar {
-  background-color: #333;
+  background-color: var(--secondary-color);
   padding: 10px 20px;
   display: flex;
   align-items: center;
@@ -27,11 +27,12 @@ body {
   text-decoration: none;
   padding: 0 10px;
   font-size: 16px;
+  font-weight: bold;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #ff6347; /* Tomato color on hover */
+  color: var(--primary-color); /* Tomato color on hover */
   text-decoration: underline;
 }
 

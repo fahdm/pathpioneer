@@ -27,6 +27,7 @@ async function create(req, res) {
   
 async function login(req, res) {
   
+  console.log('req.body')
   try {
     // Try to find the user in the database by email
     const user = await User.findOne({ email: req.body.email });    

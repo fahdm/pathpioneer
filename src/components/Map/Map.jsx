@@ -23,6 +23,7 @@ export default function Map() {
       container: mapContainer.current,
       zoom: 10,
       center: [-122, 37],
+      attributionControl: false, // Remove the Mapbox watermark
       style: 'mapbox://styles/mapbox/streets-v12',
     });
 
@@ -66,18 +67,36 @@ export default function Map() {
     }
   };
 
+<<<<<<< HEAD
+  // const handleGetPaths = async () => {
+  //   const paths = await getPaths();
+  //   console.log('Retrieved Paths:', paths);
+  // };
+
+  return (
+    <div className="map-page">
+      <div className="map-container" ref={mapContainer} />
+      <div className="input-button-container">
+=======
   return (
     <div>
       <div className="Map-Container" ref={mapContainer} />
       <div>
+>>>>>>> main
         <input
           type="text"
+          className="path-input"
           placeholder="Enter path name"
           value={pathName}
           onChange={(e) => setPathName(e.target.value)}
         />
+<<<<<<< HEAD
+        <button className="save-button" onClick={handleSavePath}>Save Path</button>
+      </div>
+=======
       </div>
       <button onClick={handleSavePath}>Save Path</button>
+>>>>>>> main
     </div>
   );
 }

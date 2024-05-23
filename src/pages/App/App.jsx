@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css'
-import { getPaths } from "../../utilities/paths-service";
+// import { getPaths } from "../../utilities/paths-service";
 import NavBar from '../../components/NavBar/NavBar'
 import AuthPage from '../AuthPage/AuthPage'
 import NewPathPage from '../NewPathPage/NewPathPage'
@@ -16,7 +16,7 @@ export default function App() {
  
   const [user, setUser] = useState(getUser())
   const [paths, setPaths] = useState([])
- 
+
   return (
     <main className="App">
     { user ?
