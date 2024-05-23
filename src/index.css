@@ -6,8 +6,8 @@
 :root {
   --primary-color: #2ABFA4; /* Teal */
   --secondary-color: #A67C52; /* Brown */
-  --background-color: #FFFFFF; /* White */
-  --card-background-color: #F0F0F0; /* Light Gray */
+  --background-color: #F0F0F0; /* Light Gray */
+  --card-background-color: #FFFFFF; /* White */
   --border-color: #E0E0E0; /* Light Border Gray */
   --text-color: #333333; /* Dark Gray */
   --dark-green-color: #1A5144; /* Dark Green */

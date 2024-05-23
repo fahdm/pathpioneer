@@ -1,0 +1,21 @@
+.card-container {
+  background-color: var(--card-background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container h4 {
+  margin-bottom: 10px;
+}
+
+.card-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-container a:hover {
+  text-decoration: underline;
+}
