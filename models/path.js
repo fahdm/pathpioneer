@@ -22,6 +22,18 @@ const pathSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
+  distance: {
+    type: Number,
+    required: true
+  },
+  duration: {
+    type: Number,
+    required: true
+  },
+  directions: {
+    type: [String],
+    required: true
+  }
 }, {
   timestamps: true
 });

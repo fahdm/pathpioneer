@@ -36,7 +36,6 @@ export default function PathDetailPage() {
 
     const isoString = path.createdAt;
 
-    // Parse the ISO string into a Date object
     const date = new Date(isoString);
     const options = {
       year: 'numeric',
@@ -49,7 +48,6 @@ export default function PathDetailPage() {
     };
     const formatter = new Intl.DateTimeFormat('en-US', options);
     const formattedDate = formatter.format(date);
-    console.log(formattedDate);
 
     const handleDeletePath = async () => {
       const deletedPath = await deletePath(path._id);
@@ -57,16 +55,21 @@ export default function PathDetailPage() {
       navigate('/paths')
     };
 
-
-
     return (
       <>
         <h1>{path.name}</h1>
         <MapThumb path={path}/>
+        <button style={{backgroundColor: 'red'}} onClick={handleDeletePath}>DELETE</button>
         <h5>Created {formattedDate}</h5>
-
-        <button onClick={handleDeletePath}>DELETE</button>
-
+        <h5>Distance: {+(path.distance.toFixed(1))} miles</h5>
+        <h3>Travel Mode: {path.travelMode}</h3>
+        <h5>Duration to complete: {Math.trunc(path.duration/60/60)} hours, {Math.trunc(path.duration/60 %  60)} minutes</h5>
+        <h3>Directions:</h3>
+        <ul>
+          {path.directions.map((d, index) => (
+            <li key={index}>{d}</li>
+          ))}
+        </ul>
       </>
     );
   }
