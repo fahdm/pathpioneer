@@ -13,6 +13,9 @@
     padding: 10px;
     overflow: hidden;
 }
+p {
+    margin-top: 40px;
+}
 
 .paths-grid > * {
     flex-basis: calc(25% - 20px);

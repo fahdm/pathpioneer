@@ -20,6 +20,7 @@ export default function PathIndexPage() {
         <>
             <p>Select the route you want to take!</p>
             {paths.length > 0 ? (
+                
                 <div className="paths-grid">
                     {paths.map((path) => (
                         <div key={path._id} className="path-card-wrapper">
