@@ -1,0 +1,8 @@
+button {
+    background-color: var(--secondary-color);
+
+}
+
+button:hover {
+    background-color: var(--dark-green-color);
+}

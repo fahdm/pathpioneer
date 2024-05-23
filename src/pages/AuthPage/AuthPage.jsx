@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
-// import "./AuthPage.css"; // Assuming you have some CSS to style the AuthPage
+import "./AuthPage.css"; 
 
 export default function AuthPage({ setUser }) {
     const [showSignUp, setShowSignUp] = useState(false);
@@ -20,10 +20,12 @@ export default function AuthPage({ setUser }) {
                 ) : (
                     <LoginForm setUser={setUser} />
                 )}
-            </div>
-            <button onClick={toggleForm} className="toggle-button">
+
+                <button onClick={toggleForm} className="toggle-button">
                 {showSignUp ? 'Already have an account? Log In' : "Don't have an account? Sign Up"}
-            </button>
+                </button>
+            </div>
+            
         </main>
     );
 }
