@@ -1,22 +1,29 @@
+import React, { useState } from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import { useState } from "react";
+// import "./AuthPage.css"; // Assuming you have some CSS to style the AuthPage
 
-export default function AuthPage({setUser}) {
+export default function AuthPage({ setUser }) {
     const [showSignUp, setShowSignUp] = useState(false);
+
+    const toggleForm = () => {
+        setShowSignUp(!showSignUp);
+    };
+
     return (
-        <main>
+        <main className="auth-page">
             <h1>AuthPage</h1>
-            <button onClick={() => setShowSignUp(!showSignUp)}>
-                {showSignUp ? 'Log In' : 'Sign Up'}
-            </button>
+        
             <div className="form-container">
                 {showSignUp ? (
-                <SignUpForm setUser={setUser} />
+                    <SignUpForm setUser={setUser} />
                 ) : (
-                <div className='loginForm'><LoginForm className='loginForm' setUser={setUser} /></div>
+                    <LoginForm setUser={setUser} />
                 )}
             </div>
+            <button onClick={toggleForm} className="toggle-button">
+                {showSignUp ? 'Already have an account? Log In' : "Don't have an account? Sign Up"}
+            </button>
         </main>
     );
-} 
+}
