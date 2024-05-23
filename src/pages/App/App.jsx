@@ -17,15 +17,6 @@ export default function App() {
   const [user, setUser] = useState(getUser())
   const [paths, setPaths] = useState([])
 
-  useEffect(() => {
-    async function fetchPaths() {
-      const paths = await getPaths();
-      setPaths(paths)
-    }
-
-    fetchPaths();
-    }, []);
-
   return (
     <main className="App">
     { user ?
@@ -34,7 +25,7 @@ export default function App() {
         <Routes>
           <Route path="/paths/new" element={<NewPathPage />} />
           <Route path="/paths" element={<PathIndexPage />} />
-          <Route path="/paths/:pathId" element={<PathDetailPage paths={paths}/>} />
+          <Route path="/paths/:pathId" element={<PathDetailPage />} />
         </Routes>
       </>
       :
