@@ -6,8 +6,8 @@
 :root {
   --primary-color: #2ABFA4; /* Teal */
   --secondary-color: #A67C52; /* Brown */
-  --background-color: #FFFFFF; /* White */
-  --card-background-color: #F0F0F0; /* Light Gray */
+  --background-color: #F0F0F0; /* Light Gray */
+  --card-background-color: #FFFFFF; /* White */
   --border-color: #E0E0E0; /* Light Border Gray */
   --text-color: #333333; /* Dark Gray */
   --dark-green-color: #1A5144; /* Dark Green */
@@ -31,12 +31,12 @@ body {
 section {
   padding: 20px;
   margin: 20px 0;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 10px 0;
-  font-weight: bold;
+  margin: 20px 0;
+  font-weight: medium;
+  color: var(--dark-blue-color);
 }
 
 p {

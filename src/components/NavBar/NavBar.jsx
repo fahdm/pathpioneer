@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import * as usersService from '../../utilities/users-service'
+import logo from "../../images/logo.png"
 import './NavBar.css'
 
 export default function NavBar({ user, setUser }) {
@@ -13,7 +14,9 @@ export default function NavBar({ user, setUser }) {
     return (
         <nav className="navbar">
           <div className="navbar-logo">
-            <Link to='/' className="nav-link logo">PathPioneer</Link>
+            <Link to='/' className="nav-link logo">
+            <img src={logo} alt="PathPioneer Logo" className="logo-image" />
+            </Link>
           </div>
           <div className="navbar-links">
             <Link to='/paths/new' className="nav-link">New Path</Link>
