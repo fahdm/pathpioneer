@@ -99,11 +99,10 @@ export default function Map() {
     }
   };
 
-
   return (
-    <div className="map-page">
-      <div className="map-container" ref={mapContainer} />
-      <div className="input-button-container">
+    <div className='main-page'>
+      <div className="Map-Container" ref={mapContainer} />
+      <div className=''>
         <input
           type="text"
           className="path-input"
@@ -111,8 +110,8 @@ export default function Map() {
           value={pathName}
           onChange={(e) => setPathName(e.target.value)}
         />
-        <button className="save-button" onClick={handleSavePath}>Save Path</button>
       </div>
+      <button onClick={handleSavePath}>Save Path</button>
     </div>
   );
 }
