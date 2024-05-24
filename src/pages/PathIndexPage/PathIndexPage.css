@@ -21,10 +21,6 @@ p {
     flex-basis: calc(25% - 20px);
 }
 
-/* .path-card-wrapper {
-    width: 400px; 
-    height: auto;
-} */
 h4 {
     margin-top: auto;
 }
