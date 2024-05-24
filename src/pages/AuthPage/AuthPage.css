@@ -26,12 +26,14 @@
     margin-bottom: 20px;
     font-size: 1.8em;
     color: #ecf0f1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .auth-page p {
     font-size: 1.2em;
     margin-bottom: 30px;
     color: #ecf0f1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .toggle-button {

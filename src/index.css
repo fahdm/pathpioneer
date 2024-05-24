@@ -2,7 +2,6 @@
   box-sizing: border-box;
 } 
 
-
 :root {
   --primary-color: #2ABFA4; 
   --secondary-color: #A67C52; 
@@ -16,7 +15,6 @@
   --error-color: #FF0000; 
 }
 
-
 body {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
@@ -26,7 +24,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
 
 section {
   padding: 20px;
@@ -43,7 +40,6 @@ p {
   margin: 10px 0;
 }
 
-
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -58,7 +54,6 @@ button {
 button:hover {
   background-color: var(--dark-green-color);
 }
-
 
 input, textarea, select {
   width: 100%;
@@ -81,12 +76,10 @@ label {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-
 .error-message {
   color: var(--error-color);
   text-align: center;
 }
-
 
 .navbar {
   background-color: var(--secondary-color);
@@ -106,7 +99,6 @@ label {
   text-decoration: underline;
 }
 
-
 .text-center {
   text-align: center;
 }
@@ -122,7 +114,6 @@ label {
 .p-20 {
   padding: 20px;
 }
-
 
 @media (max-width: 600px) {
   .navbar {

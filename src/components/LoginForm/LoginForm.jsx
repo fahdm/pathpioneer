@@ -3,7 +3,6 @@ import { useState } from 'react';
 import './LoginForm.css';
 
 export default function LoginForm({setUser}) {
-
     const [credentials, setCredentials] = useState({
         email: '',
         password: '',
@@ -11,26 +10,21 @@ export default function LoginForm({setUser}) {
     });
 
     function handleChange(e) {
-      const newCredentials = {...credentials, [e.target.name]: e.target.value}
-
-      newCredentials.error = ''
-      setCredentials(newCredentials)
+      const newCredentials = {...credentials, [e.target.name]: e.target.value};
+      newCredentials.error = '';
+      setCredentials(newCredentials);
     };
 
     async function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         try {
-            const formData = {...credentials}
-            delete formData.error;
-
-            
-            
-            const user = await usersService.login(formData);
-            setUser(user);
+          const formData = {...credentials};
+          delete formData.error;  
+          const user = await usersService.login(formData);
+          setUser(user);
             
         } catch {
-          
-            setCredentials({...credentials, error: 'Login Failed - Try Again' });
+          setCredentials({...credentials, error: 'Login Failed - Try Again' });
         }
     };
 

@@ -2,6 +2,10 @@
   width: 100%;
   height: 300px;
   border: 1px solid #ccc;
-  margin-right: aut;
+  margin-right: auto;
   margin-left: auto;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  visibility: hidden;
 }

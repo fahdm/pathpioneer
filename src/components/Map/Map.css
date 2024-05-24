@@ -10,10 +10,11 @@
 
 .map-container {
   width: 100%;
-  max-width: 800px;
-  height: 400px;
+  max-width: 1600px;
+  height: 700px;
   background-color: #e0e0e0;
   border: 1px solid var(--border-color);
+  margin-top: 2px;
   border-radius: 10px;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -51,4 +52,24 @@
 
 .save-button:hover {
   background-color: var(--dark-green-color);
+}
+
+.h1{
+  color: #e0e0e0;
+}
+
+.directions-control-directions {
+  visibility: hidden;
+}
+
+.mapbox-directions-route-summary{
+  visibility: visible;
+}
+
+.mapbox-directions-route-summary h1{
+  color:#e0e0e0
+}
+
+div.mapboxgl-ctrl-bottom-left{
+  visibility: hidden;
 }
