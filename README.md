@@ -19,7 +19,7 @@ Click [Here](https://path-pioneer-d87bb5db5253.herokuapp.com) to Launch Path Pio
 
 ## Plan The Perfect Route with Path Pioneer
 
-In our fast-paced world, having a reliable sidekick to simplify planning is essential. Path Pioneer makes planning your own adventure easy and customized to your preferences. Whether you prefer smooth asphalt for road biking, rugged single tracks for mountain biking, or serene trails for hiking, Path Pioneer generates sport-specific, topographic routing tailor-made for your next outdoor experience. Customize each route to include your favorite landmarks and scenic spots, and view detailed surface and way type readings to ensure you're always prepared for what's ahead. Wherever your adventure takes you, Path Pioneer helps you plan the perfect route, making your journeys easier and more enjoyable.
+In our busy world, having a reliable tool to make planning easier is essential. Path Pioneer helps you plan your adventures quickly and tailored to your preferences. Whether you like smooth roads for biking, rugged trails for mountain biking, or peaceful paths for hiking, Path Pioneer creates routes that suit your needs. It also shows detailed information about the path to ensure you're always prepared. Wherever your journey takes you, Path Pioneer helps you plan the perfect route, making your trips easier and more enjoyable.
 
 ## Screenshots
 
