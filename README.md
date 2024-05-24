@@ -19,8 +19,7 @@ In our fast-paced world, having a reliable sidekick to simplify planning is esse
 
 ![Screenshot 2024-05-23 at 7 35 20 PM](https://github.com/fahdm/pathpioneer/assets/8414726/976e6668-c6d7-4286-9fd5-8be39924a2f2)
 
-
-![Screenshot 2024-05-23 at 7 35 32 PM](https://github.com/fahdm/pathpioneer/assets/8414726/2ba39ac2-dd31-48df-a2dc-9e38664d1cde)
+<img width="1470" alt="Screenshot 2024-05-23 at 9 11 53 PM" src="https://github.com/fahdm/pathpioneer/assets/8414726/2a044a7f-2fbc-49b1-a22e-92a5b2e8ace0">
 
 
 ![Screenshot 2024-05-23 at 7 36 09 PM](https://github.com/fahdm/pathpioneer/assets/8414726/d5a97c63-2eef-43a1-8120-05a1650bb392)
