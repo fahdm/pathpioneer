@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import MapThumb from "../../components/MapThumb/MapThumb";
 import { getPaths, deletePath } from "../../utilities/paths-service";
+import "./PathDetailPage.css"
 
 
 export default function PathDetailPage() {
@@ -56,20 +57,26 @@ export default function PathDetailPage() {
     };
 
     return (
-      <>
-        <h1>{path.name}</h1>
+      <div className="path-details">
+        <h1 className="path-name">{path.name}</h1>
         <MapThumb path={path}/>
-        <button style={{backgroundColor: 'red'}} onClick={handleDeletePath}>DELETE</button>
-        <h5>Created {formattedDate}</h5>
-        <h5>Distance: {+(path.distance.toFixed(1))} miles</h5>
-        <h3>Travel Mode: {path.travelMode}</h3>
-        <h5>Duration to complete: {Math.trunc(path.duration/60/60)} hours, {Math.trunc(path.duration/60 %  60)} minutes</h5>
-        <h3>Directions:</h3>
-        <ul>
-          {path.directions.map((d, index) => (
-            <li key={index}>{d}</li>
-          ))}
-        </ul>
-      </>
+        <button className="delete-button" onClick={handleDeletePath}>DELETE</button>
+        <div className="detail-container">
+          <div className="right">
+            <h5 className="created-date">Created {formattedDate}</h5>
+            <h5 className="distance">Distance: <span>{+(path.distance.toFixed(1))} miles</span></h5>
+            <h3 className="travel-mode">Travel Mode: <span>{path.travelMode}</span></h3>
+            <h5 className="duration">Duration to complete: <span>{Math.trunc(path.duration/60/60)} hours, {Math.trunc(path.duration/60 %  60)} minutes</span></h5>
+          </div>
+          <div className='left'>
+            <h4 className="directions-title">Directions</h4>
+            <ul className="directions-list">
+              {path.directions.map((d, index) => (
+                <li key={index} className="direction">{d}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     );
   }

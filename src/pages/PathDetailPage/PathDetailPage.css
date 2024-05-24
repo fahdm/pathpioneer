@@ -1,8 +1,90 @@
-/* .map-thumb-in-detail {
-    width: 80%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto; 
-  } */
+.path-details {
+  padding: 20px;
+  background-color: var(--card-background-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+h4 {
+  color: var(--secondary-color);
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.path-name {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.delete-button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+h5, h3{
+  color: var(--dark-blue-color);
+}
+
+span {
+  color: var(--background-color);
+}
+
+.right {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+
+.left {
+  background-color: var(--dark-blue-color);
+  color: var(--primary-color);
+}
+
+.right, .left {
+  width: 48%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+.created-date, .distance, .travel-mode, .duration {
+  margin-bottom: 10px;
+}
+
+.directions-title {
+  margin-bottom: 10px;
+}
+
+.directions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.direction {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .detail-container {
+    flex-direction: column; /* Stack the columns vertically */
+  }
+
+  .right, .left {
+    width: 100%; /* Full width for each column */
+    margin-bottom: 20px; /* Add bottom margin for spacing */
+  }
+}
