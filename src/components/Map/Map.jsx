@@ -26,7 +26,7 @@ export default function Map() {
       container: mapContainer.current,
       zoom: 10,
       center: [-122, 37],
-      attributionControl: false, // Remove the Mapbox watermark
+      attributionControl: false, 
       style: 'mapbox://styles/mapbox/streets-v12',
     });
 
@@ -60,9 +60,9 @@ export default function Map() {
       const response = await fetch(url);
       const data = await response.json();
 
-      const fetchedDistance = data.routes[0].distance * 0.000621371; // Distance in miles
-      const fetchedDuration = data.routes[0].duration; // Duration in seconds
-      const fetchedDirectionsArray = data.routes[0].legs[0].steps.map(step => step.maneuver.instruction); // Directions array
+      const fetchedDistance = data.routes[0].distance * 0.000621371; 
+      const fetchedDuration = data.routes[0].duration; 
+      const fetchedDirectionsArray = data.routes[0].legs[0].steps.map(step => step.maneuver.instruction);
 
       setDistance(fetchedDistance);
       setDuration(fetchedDuration);

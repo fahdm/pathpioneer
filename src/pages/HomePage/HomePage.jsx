@@ -1,4 +1,3 @@
-// src/pages/HomePage/HomePage.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';

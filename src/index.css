@@ -2,21 +2,21 @@
   box-sizing: border-box;
 } 
 
-/* Colors */
+
 :root {
-  --primary-color: #2ABFA4; /* Teal */
-  --secondary-color: #A67C52; /* Brown */
-  --background-color: #F0F0F0; /* Light Gray */
-  --card-background-color: #FFFFFF; /* White */
-  --border-color: #E0E0E0; /* Light Border Gray */
-  --text-color: #333333; /* Dark Gray */
-  --dark-green-color: #1A5144; /* Dark Green */
-  --green-color: #3C8039; /* Green */
-  --dark-blue-color: #0A3030; /* Dark Blue */
-  --error-color: #FF0000; /* Red */
+  --primary-color: #2ABFA4; 
+  --secondary-color: #A67C52; 
+  --background-color: #F0F0F0; 
+  --card-background-color: #FFFFFF; 
+  --border-color: #E0E0E0; 
+  --text-color: #333333; 
+  --dark-green-color: #1A5144; 
+  --green-color: #3C8039; 
+  --dark-blue-color: #0A3030; 
+  --error-color: #FF0000; 
 }
 
-/* Fonts */
+
 body {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
@@ -27,7 +27,7 @@ body {
   padding: 0;
 }
 
-/* Sections */
+
 section {
   padding: 20px;
   margin: 20px 0;
@@ -43,7 +43,7 @@ p {
   margin: 10px 0;
 }
 
-/* Buttons */
+
 button {
   padding: 10px 20px;
   font-size: 16px;
@@ -59,7 +59,7 @@ button:hover {
   background-color: var(--dark-green-color);
 }
 
-/* Forms */
+
 input, textarea, select {
   width: 100%;
   padding: 10px;
@@ -81,13 +81,13 @@ label {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* Error Messages */
+
 .error-message {
   color: var(--error-color);
   text-align: center;
 }
 
-/* Navbar */
+
 .navbar {
   background-color: var(--secondary-color);
   padding: 10px 20px;
@@ -106,7 +106,7 @@ label {
   text-decoration: underline;
 }
 
-/* Utility Classes */
+
 .text-center {
   text-align: center;
 }
@@ -123,7 +123,7 @@ label {
   padding: 20px;
 }
 
-/* Responsive Design */
+
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;

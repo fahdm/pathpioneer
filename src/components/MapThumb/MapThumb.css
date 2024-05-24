@@ -1,25 +1,3 @@
-/* .Map-Container {
-    width: 80%;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto; 
-}
-
-/* .path-index-page .mapboxgl-ctrl {
-  display: none;
-} */
-
-/*.path-index-page .Map-Container {  
-    width: 20%;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto; 
-} */
-
 .Map-Container {
   width: 100%;
   height: 300px;

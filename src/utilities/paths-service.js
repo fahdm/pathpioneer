@@ -1,5 +1,3 @@
-// src/utilities/paths-service.js
-
 import sendRequest from './send-request';
 const BASE_URL = '/api/paths';
 
