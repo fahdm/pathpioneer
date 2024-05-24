@@ -40,6 +40,7 @@ body {
 .hero-content h1 {
   font-size: 4em;
   margin: 0;
+  color: whitesmoke;
 }
 
 .hero-content p {
@@ -82,7 +83,7 @@ body {
 }
 
 footer {
-  background-color: var(--secondary-color);
+  background-color: var(--dark-green-color);
   color: var(--white);
   text-align: center;
   padding: 20px;
