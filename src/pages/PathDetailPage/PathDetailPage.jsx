@@ -52,7 +52,7 @@ export default function PathDetailPage() {
 
     const handleDeletePath = async () => {
       const deletedPath = await deletePath(path._id);
-      console.log('Deleted Path:', deletedPath);
+
       navigate('/paths')
     };
 

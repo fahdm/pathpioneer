@@ -23,13 +23,13 @@ export default function LoginForm({setUser}) {
             const formData = {...credentials}
             delete formData.error;
 
-            //alert(JSON.stringify(formData));
+            
             
             const user = await usersService.login(formData);
             setUser(user);
             
         } catch {
-            // An error occurred 
+          
             setCredentials({...credentials, error: 'Login Failed - Try Again' });
         }
     };

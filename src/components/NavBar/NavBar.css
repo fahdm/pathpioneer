@@ -31,7 +31,7 @@
 
 .nav-link:hover,
 .nav-link:focus {
-  color: var(--primary-color); /* Tomato color on hover */
+  color: var(--primary-color); 
   text-decoration: underline;
 }
 
@@ -44,7 +44,7 @@
   font-weight: bold;
 }
 
-/* Responsive design */
+
 @media (max-width: 600px) {
   .navbar {
       flex-direction: column;

@@ -39,3 +39,25 @@ h4 {
     margin-top: 20px;
     text-align: center;
 }
+
+.sort-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.sort-options label {
+    margin-right: 10px;
+    font-weight: bold;
+    white-space: nowrap; 
+}
+
+.sort-options select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 120px; 
+}
+
+

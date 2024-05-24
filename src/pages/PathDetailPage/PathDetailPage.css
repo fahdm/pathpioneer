@@ -15,6 +15,7 @@ h4 {
 .path-name {
   font-size: 24px;
   margin-bottom: 20px;
+  color: white; 
 }
 
 .delete-button {
@@ -38,6 +39,7 @@ h4 {
 h5, h3{
   color: var(--dark-blue-color);
 }
+
 
 span {
   color: var(--background-color);
@@ -80,11 +82,11 @@ span {
 
 @media (max-width: 768px) {
   .detail-container {
-    flex-direction: column; /* Stack the columns vertically */
+    flex-direction: column; 
   }
 
   .right, .left {
-    width: 100%; /* Full width for each column */
-    margin-bottom: 20px; /* Add bottom margin for spacing */
+    width: 100%; 
+    margin-bottom: 20px; 
   }
 }

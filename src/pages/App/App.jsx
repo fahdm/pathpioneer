@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css'
-// import { getPaths } from "../../utilities/paths-service";
 import NavBar from '../../components/NavBar/NavBar'
 import HomePage from '../HomePage/HomePage'
 import AuthPage from '../AuthPage/AuthPage'
