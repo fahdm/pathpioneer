@@ -6,8 +6,8 @@
   margin-bottom: 20px;
 }
 
-h4 {
-  color: var(--secondary-color);
+.path-name-h4 {
+  color: black;
   font-weight: bold;
   margin-top: 20px;
 }
