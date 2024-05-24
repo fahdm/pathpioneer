@@ -59,7 +59,7 @@ export default function Map() {
       const url = `https://api.mapbox.com/directions/v5/mapbox/${travelMode}/${pathOrigin.geometry.coordinates.join(',')};${pathDestination.geometry.coordinates.join(',')}?geometries=geojson&steps=true&access_token=${mapboxgl.accessToken}`;
       const response = await fetch(url);
       const data = await response.json();
-      
+
       const fetchedDistance = data.routes[0].distance * 0.000621371; // Distance in miles
       const fetchedDuration = data.routes[0].duration; // Duration in seconds
       const fetchedDirectionsArray = data.routes[0].legs[0].steps.map(step => step.maneuver.instruction); // Directions array
@@ -100,18 +100,22 @@ export default function Map() {
   };
 
   return (
-    <div>
-      <div className="Map-Container" ref={mapContainer} />
-      <div>
-        <input
-          type="text"
-          className="path-input"
-          placeholder="Enter path name"
-          value={pathName}
-          onChange={(e) => setPathName(e.target.value)}
-        />
+
+     <>
+      <div className="map-page">
+        <div className="map-container" ref={mapContainer} />
+        <div className="input-button-container">
+          <input
+            type="text"
+            className="path-input"
+            placeholder="Enter path name"
+            value={pathName}
+            onChange={(e) => setPathName(e.target.value)}
+          />
+      <button className="save-button" onClick={handleSavePath}>Save Path</button>
+        </div>
       </div>
-      <button onClick={handleSavePath}>Save Path</button>
-    </div>
+     </>
+   
   );
 }
