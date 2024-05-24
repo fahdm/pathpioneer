@@ -7,16 +7,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card-container h4 {
+.card-container1 h4 {
+  color: #2ABFA4;
   margin-bottom: 10px;
 }
 
-.card-container a {
-  text-decoration: none;
-  color: inherit;
- 
+.card-container1 h4:hover {
+  color: rgb(12, 129, 162);
 }
 
-.card-container a:hover {
-  text-decoration: underline;
+.card-container1 a {
+  text-decoration: none;
+  color: inherit;
 }

@@ -1,4 +1,5 @@
 import MapThumb from '../../components/MapThumb/MapThumb';
+import './PathCard.css';
 
 import { Link } from 'react-router-dom';
 

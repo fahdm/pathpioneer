@@ -18,13 +18,12 @@ export default function PathIndexPage() {
             const paths = await getPaths();
             setPaths(paths);
         }
-
         fetchPaths();
     }, []);
 
     return (
         <>
-            <p>Select the route you want to take!</p>
+            <br/>
             {paths.length > 0 ? (
                 <>
                     <div className="sort-options">

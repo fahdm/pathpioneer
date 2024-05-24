@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom'
-import * as usersService from '../../utilities/users-service'
-import logo from "../../assets/logo.png"
-import './NavBar.css'
+import { Link } from 'react-router-dom';
+import * as usersService from '../../utilities/users-service';
+import logo from "../../assets/logo.png";
+import './NavBar.css';
 
 export default function NavBar({ user, setUser }) {
 
     function handleLogOut() {
         usersService.logOut();
-
         setUser(null);
     }
 

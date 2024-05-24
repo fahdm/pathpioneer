@@ -12,9 +12,9 @@ export default function AuthPage({ setUser }) {
 
     return (
         <main className="auth-page">
-            <h1>Path Pioneer!</h1>
-            <h3> Where, will you go next?</h3>
-            <p>Sign Up to Plan Your Routes</p>
+            <h1>Path Pioneer</h1>
+            <h3> Where will you go next?</h3>
+            <p>Sign Up to Plan Your Next Route!</p>
             <div className="form-container">
                 {showSignUp ? (
                     <SignUpForm setUser={setUser} />

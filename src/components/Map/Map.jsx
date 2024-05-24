@@ -21,8 +21,8 @@ export default function Map() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (map.current) return; // Initialize map only once
-    map.current = new mapboxgl.Map({
+    if (map.current) return;
+      map.current = new mapboxgl.Map({
       container: mapContainer.current,
       zoom: 10,
       center: [-122, 37],
@@ -93,7 +93,6 @@ export default function Map() {
         duration: routeDetails.duration,
         directions: routeDetails.directions,
       };
-
       const savedPath = await createPath(pathBody);
       navigate('/paths');
     }
@@ -102,17 +101,17 @@ export default function Map() {
   return (
 
      <>
-      <div className="map-page">
+      <div className="map-page" style={{marginLeft: 'auto', marginRight: 'auto', width: '80%', height: '900px' }} >
         <div className="map-container" ref={mapContainer} />
         <div className="input-button-container">
           <input
             type="text"
             className="path-input"
-            placeholder="Enter path name"
+            placeholder="Enter Path name"
             value={pathName}
             onChange={(e) => setPathName(e.target.value)}
           />
-      <button className="save-button" onClick={handleSavePath}>Save Path</button>
+        <button className="save-button" onClick={handleSavePath}>Save Path</button>
         </div>
       </div>
      </>

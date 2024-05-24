@@ -1,20 +1,14 @@
 import * as usersAPI from './users-api.js'
 
-export async function signUp(userData) {
-   
-    const token = await usersAPI.signUp(userData);
-   
-    localStorage.setItem('token', token)
-    
+export async function signUp(userData) {   
+    const token = await usersAPI.signUp(userData);   
+    localStorage.setItem('token', token)    
     return getUser();
   }
 
-export async function login(credentials) {
- 
-  const token = await usersAPI.login(credentials);
- 
-  localStorage.setItem('token', token)
- 
+export async function login(credentials) { 
+  const token = await usersAPI.login(credentials); 
+  localStorage.setItem('token', token);
   return getUser();
 }
   
@@ -22,15 +16,11 @@ export function logOut() {
   localStorage.removeItem('token');
 }
 
-export function getToken() {
-  
+export function getToken() {  
   const token = localStorage.getItem('token');
-  if (!token) return null;
-  
-  const payload = JSON.parse(atob(token.split('.')[1]));
-  
-  if (payload.exp * 1000 < Date.now()) {
-  
+  if (!token) return null;  
+  const payload = JSON.parse(atob(token.split('.')[1]));  
+  if (payload.exp * 1000 < Date.now()) {  
     localStorage.removeItem('token');
     return null;
   }
@@ -38,14 +28,11 @@ export function getToken() {
 }
 
 export function getUser() {
-  const token = getToken();
- 
+  const token = getToken(); 
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
-export function checkToken() {
-  
-  return usersAPI.checkToken()
-  
+export function checkToken() {  
+  return usersAPI.checkToken()  
     .then(dateStr => new Date(dateStr));
 }

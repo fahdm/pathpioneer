@@ -6,7 +6,7 @@ import './MapThumb.css';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAP_BOX_TOKEN;
 
-export default function MapThumb({path}) {
+export default function MapThumb({path, style}) {
     const [wayPoints, setWayPoints] = useState(null);
     const [pathName, setPathName] = useState('');
     const [travelMode, setTravelMode] = useState('cycling'); 
@@ -14,12 +14,11 @@ export default function MapThumb({path}) {
     const map = useRef(null);
     const directions = useRef(null);
 
-    //CHANGE TO DATABASE DATA
     const origin = path.originCoordinates;
     const destination = path.destinationCoordinates;
   
     useEffect(() => {
-        if (map.current) return; // Initialize map only once
+        if (map.current) return;
         map.current = new mapboxgl.Map({
           container: mapContainer.current,
           zoom: 11,
@@ -53,7 +52,6 @@ export default function MapThumb({path}) {
             const data = await response.json();
             const route = data.routes[0].geometry.coordinates;
       
-            // Create a GeoJSON object for the route
             const routeGeoJSON = {
               type: 'Feature',
               properties: {},
@@ -63,7 +61,6 @@ export default function MapThumb({path}) {
               },
             };
       
-            // Add the route as a layer on the map
             map.current.addSource('route', {
               type: 'geojson',
               data: routeGeoJSON,
@@ -83,7 +80,6 @@ export default function MapThumb({path}) {
               },
             });
       
-            // Fit the map to the route
             const bounds = route.reduce((bounds, coord) => {
               return bounds.extend(coord);
             }, new mapboxgl.LngLatBounds(route[0], route[0]));
@@ -96,7 +92,7 @@ export default function MapThumb({path}) {
   
     return (
      <div className="path-index-page">
-        <div className="Map-Container" ref={mapContainer} />
+        <div className="Map-Container" ref={mapContainer}  style={style}/>
     </div>
     );
   }
