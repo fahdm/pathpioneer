@@ -57,7 +57,7 @@ export default function PathDetailPage() {
 
     return (
       <div className="path-details">
-        <h1 className="path-name">{path.name}</h1>
+        <h1 className="path-name-h4" >{path.name}</h1>
         <MapThumb path={path} style={{ width: '80%', height: '600px' }} />
         <button className="delete-button" onClick={handleDeletePath}>DELETE</button>
         <div className="detail-container">
